@@ -11,4 +11,5 @@
 |
 */
 
+Route::get('/test', 'SearchController@test');
 Route::get('/', 'SearchController@columns');

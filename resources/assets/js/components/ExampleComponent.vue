@@ -111,7 +111,7 @@
                     this.customColumns.push(column);
                 }
                 const index = this.availableColumns.findIndex(item => item === column);
-                this.availableColumns.splice(index, 1)
+                this.availableColumns.splice(index, 1);
             },
 
             moveColumns() {

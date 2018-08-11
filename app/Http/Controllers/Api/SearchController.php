@@ -11,9 +11,16 @@ class SearchController extends Controller
 {
     public function columns(CustomColumn $customColumn)
     {
+        $customColumns = $customColumn->all()->pluck('name')->toArray();
+
+        $availableCustoms = [];
+        foreach (array_diff($this->getAvailableColumns(), $customColumns) as $column) {
+            $availableCustoms[] = $column;
+        }
+
         return response()->json([
-            'availableColumns' => $this->getAvailableColumns(),
-            'customColumns' => $customColumn->all()->pluck('name'),
+            'availableColumns' => $availableCustoms,
+            'customColumns' => $customColumns,
         ], 200);
     }
 
